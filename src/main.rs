@@ -3,11 +3,12 @@ use std::error::Error;
 mod utils;
 mod day1;
 mod day2;
+mod day3;
 
 type Solver = fn() -> Result<(String, String), Box<dyn Error>>;
 
-const DAYS: usize = 2;
-const SOLVERS: [Solver; DAYS] = [day1::solve, day2::solve];
+const DAYS: usize = 3;
+const SOLVERS: [Solver; DAYS] = [day1::solve, day2::solve, day3::solve];
 
 fn main() {
     for i in 0..DAYS {

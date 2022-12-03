@@ -1,4 +1,4 @@
-use std::{error::Error, fs::OpenOptions};
+use std::{error::Error};
 
 use crate::utils::{read_input_lines, SolveError};
 
