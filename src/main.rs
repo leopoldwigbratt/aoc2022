@@ -4,11 +4,12 @@ mod utils;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 type Solver = fn() -> Result<(String, String), Box<dyn Error>>;
 
-const DAYS: usize = 3;
-const SOLVERS: [Solver; DAYS] = [day1::solve, day2::solve, day3::solve];
+const DAYS: usize = 4;
+const SOLVERS: [Solver; DAYS] = [day1::solve, day2::solve, day3::solve, day4::solve];
 
 fn main() {
     for i in 0..DAYS {

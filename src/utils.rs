@@ -29,5 +29,11 @@ pub fn read_input_lines(file: &str) -> Result<Lines<BufReader<File>>, Box<dyn Er
   Ok(BufReader::new(input).lines())
 }
 
+pub fn read_input_lines_ok(file: &str) -> Result<Vec<String>, Box<dyn Error>> {
+  let path = current_dir()?.join("input").join(file);
+  let input = File::open(path)?;
+  Ok(BufReader::new(input).lines().filter(|l| l.is_ok()).flatten().collect())
+}
+
 
 
