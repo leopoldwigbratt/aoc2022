@@ -1,6 +1,6 @@
 use std::{error::Error, collections::HashSet};
 
-use crate::utils::{read_input_string};
+use crate::utils::read_input_string;
 
 pub fn solve() -> Result<(String, String), Box<dyn Error>> {
   let input = read_input_string("day8.txt")?;
@@ -133,11 +133,14 @@ fn initialize_grid(string: &String) -> (Vec<u8>, usize) {
 fn parse_trees(string: &String) -> (Vec<u8>, usize) {
   let (mut grid, side) = initialize_grid(string);
   let j_length = side + 1;
+  let bytes = string.as_bytes();
+
   (0..side).for_each(|i| {
     let start = i * j_length;
     let end = (i + 1) * j_length - 1;
-    grid.extend_from_slice(&string.as_bytes()[start..end]);
+    grid.extend_from_slice(&bytes[start..end]);
   });
+
   (grid, side)
 }
 

@@ -1,7 +1,7 @@
 use std::error::Error;
 
 mod utils;
-mod day1;
+mod day1;   mod day9;
 mod day2;
 mod day3;
 mod day4;
@@ -13,8 +13,12 @@ mod day8;
 type SolverResult = Result<(String, String), Box<dyn Error>>;
 type Solver = fn() -> SolverResult;
 
-const DAYS: usize = 8;
-const SOLVERS: [Solver; DAYS] = [day1::solve, day2::solve, day3::solve, day4::solve, day5::solve, day6::solve, day7::solve, day8::solve];
+const DAYS: usize = 9;
+const SOLVERS: [Solver; DAYS] = [
+    day1::solve,    day2::solve,    day3::solve,    day4::solve,
+    day5::solve,    day6::solve,    day7::solve,    day8::solve,
+    day9::solve,
+];
 
 fn main() {
     for i in 0..DAYS {
