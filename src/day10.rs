@@ -17,8 +17,8 @@ lazy_static! {
   static ref REGEX: Regex = Regex::new(REGEX_PATTERN).unwrap();
 }
 
-const LIT: char = '#';
-const DARK: char = '.';
+const LIT: char = '🎁';
+const DARK: char = '🎄';
 
 pub fn solve() -> Result<(String, String), Box<dyn Error>> {
   let lines = read_input_lines_ok("day10.txt")?;
@@ -28,10 +28,15 @@ pub fn solve() -> Result<(String, String), Box<dyn Error>> {
     .map(parse_line)
     .fold((0, 1, 0), step_instruction);
 
-  let (_, _, part2) = lines
+  let mut part2 = String::from("See below ↓");
+
+  let (_, _, output) = lines
     .iter()
     .map(parse_line)
     .fold((0, 1, String::with_capacity(240)), draw_cycle);
+  
+  part2.push_str(&output);
+  part2.push_str("\n                                 ");
   
   Ok((part1.to_string(), part2))
 }
