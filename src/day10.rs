@@ -62,8 +62,7 @@ fn draw(cycle: i32, x_reg: i32, output: &mut String) {
     output.push('\n');
   }
 
-  let offset = (cycle / 40) * 40;
-  if cycle >= x_reg - 1 + offset && cycle <= x_reg + 1 + offset {
+  if cycle % 40 >= x_reg - 1 && cycle % 40 <= x_reg + 1 {
     output.push(LIT);
   } else {
     output.push(DARK);
